@@ -11,6 +11,7 @@ body{
   margin:0;
   font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
   background:linear-gradient(135deg,#5b2cff,#7a3df0,#b266ff);
+  color:#333;
 }
 header{
   background:linear-gradient(135deg,#4b1ecf,#6a32ff);
@@ -39,6 +40,30 @@ section{
   border-radius:20px;
 }
 h2{text-align:center;color:#5b2cff;}
+
+.btn{
+  display:inline-block;
+  background:#7f3fff;
+  color:#fff;
+  padding:14px 28px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.calculator{
+  max-width:420px;
+  margin:auto;
+  background:#f5f0ff;
+  padding:25px;
+  border-radius:18px;
+}
+.calculator input,.calculator select{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+}
+
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -51,6 +76,7 @@ h2{text-align:center;color:#5b2cff;}
   border-radius:18px;
   cursor:pointer;
 }
+
 .whatsapp{
   position:fixed;
   bottom:25px;
@@ -78,9 +104,26 @@ footer{
 </header>
 
 <nav>
+  <a href="#calculator">Calculator</a>
   <a href="#gallery">Gallery</a>
+  <a href="#services">Services</a>
   <a href="#contact">Contact</a>
 </nav>
+
+<section id="calculator">
+<h2>Auto Price Calculator</h2>
+<div class="calculator">
+  <label>Item Price (USD)</label>
+  <input type="number" id="price">
+  <label>Service</label>
+  <select id="service">
+    <option value="1">Exclude import ($1)</option>
+    <option value="2">Include import ($2)</option>
+  </select>
+  <div id="result"><strong>Total: $0.00</strong></div>
+  <a class="btn" id="orderBtn" target="_blank">Order via WhatsApp</a>
+</div>
+</section>
 
 <section id="gallery">
 <h2>Product Gallery</h2>
@@ -115,37 +158,24 @@ footer{
 <img src="image28.jpg" onclick="order(this.src)">
 <img src="image29.jpg" onclick="order(this.src)">
 <img src="image30.jpg" onclick="order(this.src)">
-<img src="image31.jpg" onclick="order(this.src)">
-<img src="image32.jpg" onclick="order(this.src)">
-<img src="image33.jpg" onclick="order(this.src)">
-<img src="image34.jpg" onclick="order(this.src)">
-<img src="image35.jpg" onclick="order(this.src)">
-<img src="image36.jpg" onclick="order(this.src)">
-<img src="image37.jpg" onclick="order(this.src)">
-<img src="image38.jpg" onclick="order(this.src)">
-<img src="image39.jpg" onclick="order(this.src)">
-<img src="image40.jpg" onclick="order(this.src)">
-<img src="image41.jpg" onclick="order(this.src)">
-<img src="image42.jpg" onclick="order(this.src)">
-<img src="image43.jpg" onclick="order(this.src)">
-<img src="image44.jpg" onclick="order(this.src)">
-<img src="image45.jpg" onclick="order(this.src)">
-<img src="image46.jpg" onclick="order(this.src)">
-<img src="image47.jpg" onclick="order(this.src)">
-<img src="image48.jpg" onclick="order(this.src)">
-<img src="image49.jpg" onclick="order(this.src)">
-<img src="image50.jpg" onclick="order(this.src)">
-<img src="image51.jpg" onclick="order(this.src)">
-<img src="image52.jpg" onclick="order(this.src)">
-<img src="image53.jpg" onclick="order(this.src)">
-<img src="image54.jpg" onclick="order(this.src)">
-<img src="image55.jpg" onclick="order(this.src)">
 </div>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<ul>
+<li>Shein online shopping</li>
+<li>South Africa store orders</li>
+<li>$1 service (exclude import)</li>
+<li>$2 service (include import)</li>
+<li>Delivery: 12–15 days</li>
+</ul>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <p>Phone: +263 78 984 6628</p>
+<p>Email: mondokarumbidzai1992@gmail.com</p>
 </section>
 
 <a class="whatsapp" href="https://wa.me/263789846628" target="_blank">WhatsApp</a>
@@ -153,9 +183,28 @@ footer{
 <footer>© 2026 Shein Zimbabwe</footer>
 
 <script>
+const price=document.getElementById("price");
+const service=document.getElementById("service");
+const result=document.getElementById("result");
+const orderBtn=document.getElementById("orderBtn");
+
+function calc(){
+  let p=parseFloat(price.value)||0;
+  let f=parseFloat(service.value);
+  let t=p+f;
+  result.innerHTML="<strong>Total: $"+t.toFixed(2)+"</strong>";
+  orderBtn.href="https://wa.me/263789846628?text="+
+    encodeURIComponent("Order\nPrice: $"+p+"\nFee: $"+f+"\nTotal: $"+t);
+}
+price.oninput=calc;
+service.onchange=calc;
+
 function order(src){
-  let msg=encodeURIComponent("Hello, I want to order this product:\n"+src);
-  window.open("https://wa.me/263789846628?text="+msg,"_blank");
+  window.open(
+    "https://wa.me/263789846628?text="+
+    encodeURIComponent("Hello, I want to order this product:\n"+src),
+    "_blank"
+  );
 }
 </script>
 
