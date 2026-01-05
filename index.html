@@ -5,129 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shein Zimbabwe | Online Fashion Shopping</title>
 <meta name="description" content="Shein Zimbabwe – Online fashion shopping and South Africa store orders.">
-<meta name="keywords" content="Shein Zimbabwe, Online Shopping Zimbabwe, Fashion Zimbabwe">
 
 <style>
-/* ===== GLOBAL ===== */
 body{
   margin:0;
   font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
   background:linear-gradient(135deg,#5b2cff,#7a3df0,#b266ff);
-  color:#333;
 }
-
-/* ===== ANIMATIONS ===== */
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-  100%{transform:translateY(0)}
-}
-@keyframes floatNav{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
-}
-@keyframes pulseGlow{
-  0%{box-shadow:0 0 0 rgba(178,102,255,.6)}
-  50%{box-shadow:0 0 25px rgba(178,102,255,.9)}
-  100%{box-shadow:0 0 0 rgba(178,102,255,.6)}
-}
-
-/* ===== HEADER ===== */
 header{
   background:linear-gradient(135deg,#4b1ecf,#6a32ff);
   color:#fff;
   padding:55px 20px;
   text-align:center;
 }
-
-/* ===== FLOATING NAV ===== */
 nav{
   padding:20px;
   text-align:center;
-  background:transparent;
 }
 nav a{
-  display:inline-block;
   margin:10px;
   padding:12px 24px;
   border-radius:999px;
   color:#fff;
   text-decoration:none;
   font-weight:600;
-  background:rgba(255,255,255,0.18);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.35);
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-  animation:floatNav 3.5s ease-in-out infinite;
-  transition:.3s;
+  background:rgba(255,255,255,0.2);
 }
-nav a:hover{
-  transform:translateY(-6px) scale(1.06);
-  background:rgba(255,255,255,0.3);
-}
-/* stagger animation */
-nav a:nth-child(1){animation-delay:0s}
-nav a:nth-child(2){animation-delay:.3s}
-nav a:nth-child(3){animation-delay:.6s}
-nav a:nth-child(4){animation-delay:.9s}
-nav a:nth-child(5){animation-delay:1.2s}
-
-/* ===== SECTIONS ===== */
 section{
   padding:50px 25px;
   max-width:1100px;
   margin:35px auto;
   background:#fff;
   border-radius:20px;
-  box-shadow:0 12px 28px rgba(0,0,0,.18);
 }
-h2{
-  text-align:center;
-  color:#5b2cff;
-}
-
-/* ===== BUTTONS ===== */
-.btn{
-  display:inline-block;
-  background:linear-gradient(45deg,#7f3fff,#b266ff);
-  color:#fff;
-  padding:14px 28px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:600;
-  animation:float 3s ease-in-out infinite;
-  transition:.3s;
-  box-shadow:0 8px 18px rgba(0,0,0,.25);
-}
-.btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 12px 30px rgba(178,102,255,.7);
-}
-
-/* ===== CALCULATOR ===== */
-.calculator{
-  max-width:420px;
-  margin:auto;
-  background:#f5f0ff;
-  padding:25px;
-  border-radius:18px;
-}
-.calculator input,.calculator select{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-.result{
-  font-weight:bold;
-  color:#5b2cff;
-  text-align:center;
-  margin-top:15px;
-}
-
-/* ===== GALLERY ===== */
+h2{text-align:center;color:#5b2cff;}
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -139,33 +50,18 @@ h2{
   object-fit:cover;
   border-radius:18px;
   cursor:pointer;
-  transition:.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
-.gallery img:hover{
-  transform:scale(1.05);
-}
-
-/* ===== WHATSAPP BUTTON ===== */
 .whatsapp{
   position:fixed;
   bottom:25px;
   right:25px;
-  background:linear-gradient(45deg,#25d366,#1ebe5d);
+  background:#25d366;
   color:#fff;
   padding:18px 30px;
   border-radius:60px;
   text-decoration:none;
   font-weight:bold;
-  animation:pulseGlow 2s infinite, float 4s ease-in-out infinite;
-  box-shadow:0 0 20px rgba(37,211,102,.8);
-  z-index:999;
 }
-.whatsapp:hover{
-  transform:scale(1.1);
-}
-
-/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:25px;
@@ -182,107 +78,74 @@ footer{
 </header>
 
 <nav>
-  <a href="#calculator">Home</a>
-  <a href="#calculator">Calculator</a>
   <a href="#gallery">Gallery</a>
-  <a href="#services">Services</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<section id="calculator">
-  <h2>Auto Price Calculator</h2>
-  <div class="calculator">
-    <label>Item Price (USD)</label>
-    <input type="number" id="price" placeholder="Enter item price">
-
-    <label>Service Option</label>
-    <select id="service">
-      <option value="1">$1 – Excluding import fees</option>
-      <option value="2">$2 – Including import fees</option>
-    </select>
-
-    <div class="result" id="result">Total (USD): $0.00</div>
-    <a class="btn" id="orderBtn" target="_blank">Order via WhatsApp</a>
-  </div>
-</section>
-
 <section id="gallery">
-  <h2>Product Gallery</h2>
-  <div class="gallery">
-    <!-- 55 images -->
-    <img src="images/image1.jpg" onclick="orderImage(this.src)">
-    <img src="images/image2.jpg" onclick="orderImage(this.src)">
-    <img src="images/image3.jpg" onclick="orderImage(this.src)">
-    <img src="images/image4.jpg" onclick="orderImage(this.src)">
-    <img src="images/image5.jpg" onclick="orderImage(this.src)">
-    <img src="images/image6.jpg" onclick="orderImage(this.src)">
-    <img src="images/image7.jpg" onclick="orderImage(this.src)">
-    <img src="images/image8.jpg" onclick="orderImage(this.src)">
-    <img src="images/image9.jpg" onclick="orderImage(this.src)">
-    <img src="images/image10.jpg" onclick="orderImage(this.src)">
-    <img src="images/image11.jpg" onclick="orderImage(this.src)">
-    <img src="images/image12.jpg" onclick="orderImage(this.src)">
-    <img src="images/image13.jpg" onclick="orderImage(this.src)">
-    <img src="images/image14.jpg" onclick="orderImage(this.src)">
-    <img src="images/image15.jpg" onclick="orderImage(this.src)">
-    <img src="images/image16.jpg" onclick="orderImage(this.src)">
-    <img src="images/image17.jpg" onclick="orderImage(this.src)">
-    <img src="images/image18.jpg" onclick="orderImage(this.src)">
-    <img src="images/image19.jpg" onclick="orderImage(this.src)">
-    <img src="images/image20.jpg" onclick="orderImage(this.src)">
-    <img src="images/image21.jpg" onclick="orderImage(this.src)">
-    <img src="images/image22.jpg" onclick="orderImage(this.src)">
-    <img src="images/image23.jpg" onclick="orderImage(this.src)">
-    <img src="images/image24.jpg" onclick="orderImage(this.src)">
-    <img src="images/image25.jpg" onclick="orderImage(this.src)">
-    <img src="images/image26.jpg" onclick="orderImage(this.src)">
-    <img src="images/image27.jpg" onclick="orderImage(this.src)">
-    <img src="images/image28.jpg" onclick="orderImage(this.src)">
-    <img src="images/image29.jpg" onclick="orderImage(this.src)">
-    <img src="images/image30.jpg" onclick="orderImage(this.src)">
-    <img src="images/image31.jpg" onclick="orderImage(this.src)">
-    <img src="images/image32.jpg" onclick="orderImage(this.src)">
-    <img src="images/image33.jpg" onclick="orderImage(this.src)">
-    <img src="images/image34.jpg" onclick="orderImage(this.src)">
-    <img src="images/image35.jpg" onclick="orderImage(this.src)">
-    <img src="images/image36.jpg" onclick="orderImage(this.src)">
-    <img src="images/image37.jpg" onclick="orderImage(this.src)">
-    <img src="images/image38.jpg" onclick="orderImage(this.src)">
-    <img src="images/image39.jpg" onclick="orderImage(this.src)">
-    <img src="images/image40.jpg" onclick="orderImage(this.src)">
-    <img src="images/image41.jpg" onclick="orderImage(this.src)">
-    <img src="images/image42.jpg" onclick="orderImage(this.src)">
-    <img src="images/image43.jpg" onclick="orderImage(this.src)">
-    <img src="images/image44.jpg" onclick="orderImage(this.src)">
-    <img src="images/image45.jpg" onclick="orderImage(this.src)">
-    <img src="images/image46.jpg" onclick="orderImage(this.src)">
-    <img src="images/image47.jpg" onclick="orderImage(this.src)">
-    <img src="images/image48.jpg" onclick="orderImage(this.src)">
-    <img src="images/image49.jpg" onclick="orderImage(this.src)">
-    <img src="images/image50.jpg" onclick="orderImage(this.src)">
-    <img src="images/image51.jpg" onclick="orderImage(this.src)">
-    <img src="images/image52.jpg" onclick="orderImage(this.src)">
-    <img src="images/image53.jpg" onclick="orderImage(this.src)">
-    <img src="images/image54.jpg" onclick="orderImage(this.src)">
-    <img src="images/image55.jpg" onclick="orderImage(this.src)">
-  </div>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <ul>
-    <li>Online fashion shopping from Shein</li>
-    <li>Buying from South African shops on your behalf</li>
-    <li>Service fee: $1 (excluding import) / $2 (including import)</li>
-    <li>Delivery period: 12–15 days</li>
-  </ul>
+<h2>Product Gallery</h2>
+<div class="gallery">
+<img src="image1.jpg" onclick="order(this.src)">
+<img src="image2.jpg" onclick="order(this.src)">
+<img src="image3.jpg" onclick="order(this.src)">
+<img src="image4.jpg" onclick="order(this.src)">
+<img src="image5.jpg" onclick="order(this.src)">
+<img src="image6.jpg" onclick="order(this.src)">
+<img src="image7.jpg" onclick="order(this.src)">
+<img src="image8.jpg" onclick="order(this.src)">
+<img src="image9.jpg" onclick="order(this.src)">
+<img src="image10.jpg" onclick="order(this.src)">
+<img src="image11.jpg" onclick="order(this.src)">
+<img src="image12.jpg" onclick="order(this.src)">
+<img src="image13.jpg" onclick="order(this.src)">
+<img src="image14.jpg" onclick="order(this.src)">
+<img src="image15.jpg" onclick="order(this.src)">
+<img src="image16.jpg" onclick="order(this.src)">
+<img src="image17.jpg" onclick="order(this.src)">
+<img src="image18.jpg" onclick="order(this.src)">
+<img src="image19.jpg" onclick="order(this.src)">
+<img src="image20.jpg" onclick="order(this.src)">
+<img src="image21.jpg" onclick="order(this.src)">
+<img src="image22.jpg" onclick="order(this.src)">
+<img src="image23.jpg" onclick="order(this.src)">
+<img src="image24.jpg" onclick="order(this.src)">
+<img src="image25.jpg" onclick="order(this.src)">
+<img src="image26.jpg" onclick="order(this.src)">
+<img src="image27.jpg" onclick="order(this.src)">
+<img src="image28.jpg" onclick="order(this.src)">
+<img src="image29.jpg" onclick="order(this.src)">
+<img src="image30.jpg" onclick="order(this.src)">
+<img src="image31.jpg" onclick="order(this.src)">
+<img src="image32.jpg" onclick="order(this.src)">
+<img src="image33.jpg" onclick="order(this.src)">
+<img src="image34.jpg" onclick="order(this.src)">
+<img src="image35.jpg" onclick="order(this.src)">
+<img src="image36.jpg" onclick="order(this.src)">
+<img src="image37.jpg" onclick="order(this.src)">
+<img src="image38.jpg" onclick="order(this.src)">
+<img src="image39.jpg" onclick="order(this.src)">
+<img src="image40.jpg" onclick="order(this.src)">
+<img src="image41.jpg" onclick="order(this.src)">
+<img src="image42.jpg" onclick="order(this.src)">
+<img src="image43.jpg" onclick="order(this.src)">
+<img src="image44.jpg" onclick="order(this.src)">
+<img src="image45.jpg" onclick="order(this.src)">
+<img src="image46.jpg" onclick="order(this.src)">
+<img src="image47.jpg" onclick="order(this.src)">
+<img src="image48.jpg" onclick="order(this.src)">
+<img src="image49.jpg" onclick="order(this.src)">
+<img src="image50.jpg" onclick="order(this.src)">
+<img src="image51.jpg" onclick="order(this.src)">
+<img src="image52.jpg" onclick="order(this.src)">
+<img src="image53.jpg" onclick="order(this.src)">
+<img src="image54.jpg" onclick="order(this.src)">
+<img src="image55.jpg" onclick="order(this.src)">
+</div>
 </section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p><strong>Phone:</strong> +263 78 984 6628</p>
-  <p><strong>Email:</strong> mondokarumbidzai1992@gmail.com</p>
-  <a class="btn" href="tel:+263789846628">Call Now</a>
+<h2>Contact</h2>
+<p>Phone: +263 78 984 6628</p>
 </section>
 
 <a class="whatsapp" href="https://wa.me/263789846628" target="_blank">WhatsApp</a>
@@ -290,31 +153,8 @@ footer{
 <footer>© 2026 Shein Zimbabwe</footer>
 
 <script>
-const price=document.getElementById("price");
-const service=document.getElementById("service");
-const result=document.getElementById("result");
-const orderBtn=document.getElementById("orderBtn");
-
-function calc(){
-  let p=parseFloat(price.value)||0;
-  let fee=parseFloat(service.value);
-  let total=p+fee;
-  result.textContent="Total (USD): $"+total.toFixed(2);
-
-  let msg=encodeURIComponent(
-    "Hello, I want to place an order.\nItem Price: $"+p+
-    "\nService Fee: $"+fee+
-    "\nTotal: $"+total.toFixed(2)
-  );
-  orderBtn.href="https://wa.me/263789846628?text="+msg;
-}
-price.oninput=calc;
-service.onchange=calc;
-
-function orderImage(src){
-  let msg=encodeURIComponent(
-    "Hello, I want to order this product:\n"+src
-  );
+function order(src){
+  let msg=encodeURIComponent("Hello, I want to order this product:\n"+src);
   window.open("https://wa.me/263789846628?text="+msg,"_blank");
 }
 </script>
